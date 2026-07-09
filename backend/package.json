@@ -1,0 +1,34 @@
+
+{
+  "name": "escapexpert-backend",
+  "version": "1.0.0",
+  "description": "Backend for EscapeXpert",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "node server.js",
+    "flask": "cd flask-api-flood && python app.py",
+    "dev": "concurrently \"npm run server\" \"npm run flask\""
+  },
+  "dependencies": {
+    "@google/earthengine": "^1.7.20",
+    "@react-google-maps/api": "^2.20.8",
+    "axios": "^1.16.1",
+    "bcryptjs": "^2.4.3",
+    "concurrently": "^9.2.1",
+    "cors": "^2.8.6",
+    "dotenv": "^16.6.1",
+    "express": "^4.22.2",
+    "express-validator": "^7.0.1",
+    "google-map-react": "^2.2.5",
+    "jsonwebtoken": "^9.0.3",
+    "leaflet": "^1.9.4",
+    "mongoose": "^7.8.9",
+    "nodemailer": "^8.0.7",
+    "otp-generator": "^4.0.1",
+    "react-leaflet": "^5.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

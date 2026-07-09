@@ -1,0 +1,7 @@
+Flask
+flask-cors
+earthengine-api
+google-cloud-storage
+numpy
+requests
+gunicorn

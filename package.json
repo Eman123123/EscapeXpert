@@ -1,0 +1,73 @@
+{
+  "name": "vr-disaster-training",
+  "version": "0.1.0",
+  "private": true,
+  "proxy": "http://localhost:6000",
+  "dependencies": {
+    "@google/earthengine": "^1.7.20",
+    "@react-google-maps/api": "^2.20.8",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.14.0",
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "google-map-react": "^2.2.5",
+    "jsonwebtoken": "^9.0.3",
+    "leaflet": "^1.9.4",
+    "mongoose": "^8.23.0",
+    "nodemailer": "^7.0.11",
+    "otp-generator": "^4.0.1",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-leaflet": "^5.0.0",
+    "react-router-dom": "^7.9.6",
+    "react-scripts": "5.0.1",
+    "react-tsparticles": "^2.12.2",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "server": "node server.js",
+    "server-dev": "nodemon server.js",
+    "dev": "concurrently \"npm start\" \"npm run server-dev\""
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "description": "VR Disaster Training System with Earthquake Prediction",
+  "main": "index.js",
+  "keywords": [
+    "disaster-training",
+    "earthquake-prediction",
+    "vr",
+    "react"
+  ],
+  "author": "Ifrah Rauf",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "nodemon": "^3.1.0"
+  }
+}

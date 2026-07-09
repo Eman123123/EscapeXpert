@@ -1,0 +1,30 @@
+/* App.css */
+:root {
+    --primary: #354F52;
+    --secondary: #52796F;
+    --bg: #CAD2C5;
+    --text-dark: #2F3E46;
+    --text-light: #84A98C;
+    --card-bg: #FFFFFF;
+    --accent: #667eea;
+    --danger: #e74c3c;
+    --warning: #f39c12;
+    --success: #27ae60;
+    --info: #3498db;
+}
+
+.app {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--bg);
+  color: var(--text-dark);
+}
+
+.canvas-container {
+  flex: 1;
+  position: relative;
+  background: var(--card-bg);
+}

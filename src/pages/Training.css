@@ -1,0 +1,77 @@
+/* Training.css */
+
+.training-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f4f8f4;
+    
+}
+
+/* MAIN CONTENT */
+.training-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* vertical center */
+    align-items: center;     /* horizontal center */
+    text-align: center;
+    flex: 1;                 /* take remaining height after header */
+    padding: 60px 20px;
+}
+
+/* Heading style with gradient */
+.training-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-style: italic;
+    background: linear-gradient(
+        90deg,
+        var(--text-dark),
+        var(--secondary),
+        var(--text-light),
+        var(--primary)
+    );
+    text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+.training-content h1:hover {
+    transform: scale(1.05);
+    text-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Paragraph styling */
+.training-content p {
+    font-size: 1.2rem;
+    color: #52796f;
+    max-width: 700px;
+    line-height: 1.6;
+}
+
+/* Placeholder sections for VR Scene and Stats */
+#vr-environment,
+#stats {
+    margin-top: 50px;
+    width: 100%;
+    /* max-width: 1200px; */
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #52796f;
+    font-size: 1.3rem;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    background-color: #e0f0e9;
+}
+
+#stats {
+    background-color: #d7e6df;
+    height: 250px;
+}
+
+#vr-environment {
+    height: 400px;
+}

@@ -1,0 +1,996 @@
+:root {
+    --primary: #354F52;
+    /* Dark Teal/Green */
+    --secondary: #52796F;
+    /* Medium Green/Teal Accent */
+    --bg: #CAD2C5;
+    /* Light Background */
+    --text-dark: #2F3E46;
+    /* Very Dark Text/Primary Dark */
+    --text-light: #84A98C;
+    /* Light Green Text/Subtle */
+    --card-bg: #FFFFFF;
+    /* White */
+
+    /* New Variables for Contact Section */
+    --color-background-secondary: var(--bg);
+    --color-card-bg: var(--card-bg);
+    --color-border: var(--text-light);
+    --color-input-bg: var(--card-bg);
+    --color-text-primary: var(--text-dark);
+    --color-text-secondary: var(--primary);
+}
+
+/* GENERAL */
+.home-container {
+    font-family: 'Inter', sans-serif;
+    /* Prefer Inter for modern look */
+    color: var(--text-dark);
+    background-color: var(--bg);
+    /* IMPORTANT FIX: Ensure overflow-x is hidden to prevent horizontal scrollbars */
+    overflow-x: hidden;
+}
+
+/* ---------------------------------------------------------------------- */
+/* HEADER */
+/* ---------------------------------------------------------------------- */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* padding: 15px 40px; */
+    /* Increased vertical padding */
+    background: var(--primary);
+    color: var(--card-bg);
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    /* High z-index */
+    width: 100%;
+    box-sizing: border-box;
+    /* Ensure padding is included in width */
+    /* Remove margin-left: 30px; as it breaks fixed positioning */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    
+  
+}
+
+.header .logo {
+    height: 30px;
+    /* Adjusted size */
+    object-fit: contain;
+    transform: scale(1.3);
+    transform-origin: center left;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.header-left nav a {
+    margin-left: 20px;
+    color: var(--card-bg);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.header-left nav a:hover {
+    color: var(--secondary);
+}
+
+/* Mobile Menu Toggle (Hidden on Desktop) */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: var(--card-bg);
+}
+
+/* Mobile Navigation */
+.nav-menu {
+    display: flex;
+}
+
+.header-right {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+/* Button Styling (Consistent with Hero buttons) */
+.header-right .login-btn,
+.header-right .signup-btn {
+    padding: 10px 18px; 
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s, color 0.3s, transform 0.2s;
+    text-decoration: none;
+    /* Treat as links/anchors if needed */
+}
+
+/* LOGIN BUTTON: Transparent with white border */
+.header-right .login-btn {
+    background: transparent;
+    color: var(--card-bg);
+    border: 2px solid var(--card-bg);
+}
+
+.header-right .login-btn:hover {
+    background: var(--card-bg);
+    color: var(--primary);
+    transform: translateY(-2px);
+    border-color: var(--card-bg);
+}
+
+/* SIGNUP BUTTON: Solid Secondary color background */
+.header-right .signup-btn {
+    background: var(--secondary);
+    color: var(--text-dark);
+    /* Dark text on light button */
+    border: 2px solid var(--secondary);
+}
+
+.header-right .signup-btn:hover {
+    background: var(--primary);
+    color: var(--secondary);
+    transform: translateY(-2px);
+    border-color: var(--primary);
+}
+
+/* User Profile Container */
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.user-profile:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.profile-pic {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--secondary);
+}
+
+.username {
+    color: var(--card-bg);
+    font-weight: 500;
+    font-size: 0.95rem;
+    white-space: nowrap;
+}
+
+.logout-btn {
+    padding: 8px 15px;
+    border: 2px solid var(--secondary);
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    background: var(--secondary);
+    color: var(--primary);
+    transition: background 0.3s, transform 0.2s;
+}
+
+.logout-btn:hover {
+    background: var(--primary);
+    color: var(--secondary);
+    border: 2px solid var(--secondary);
+    transform: translateY(-2px);
+}
+
+
+/* ---------------------------------------------------------------------- */
+/* HERO */
+/* ---------------------------------------------------------------------- */
+
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 150px 50px 100px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: var(--card-bg);
+    flex-wrap: wrap;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+    box-sizing: border-box;
+}
+
+#network-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-text {
+    flex: 1 1 100%;
+    max-width: 800px;
+    color: var(--card-bg);
+    margin: 0 auto;
+    z-index: 1;
+    text-align: center;
+}
+
+.hero-buttons {
+    margin-top: 40px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    z-index: 1;
+}
+
+.btn {
+    padding: 12px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    display: inline-block;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.btn-primary {
+    background-color: var(--card-bg);
+    color: var(--primary);
+    border-color: var(--card-bg);
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    color: var(--card-bg);
+    border-color: var(--card-bg);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--card-bg);
+    border-color: var(--card-bg);
+}
+
+.btn-secondary:hover {
+    background-color: var(--card-bg);
+    color: var(--primary);
+    border-color: var(--card-bg);
+    transform: translateY(-2px);
+}
+
+/* ---------------------------------------------------------------------- */
+/* ABOUT */
+/* ---------------------------------------------------------------------- */
+.about {
+    padding: 80px 50px;
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    /* Increased gap */
+    flex-wrap: wrap;
+    min-height: 50vh;
+    /* Use min-height */
+}
+
+.about-text {
+    flex: 1 1 45%;
+    min-width: 300px;
+    text-align: justify;
+}
+
+.about-text h2 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.about-images {
+    flex: 1 1 45%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 500px;
+    /* Max width constraint for image section */
+    margin: 0;
+    /* Let flex handle positioning */
+}
+
+.about-images .image-wrapper {
+    border: 3px solid var(--secondary);
+    border-radius: 12px;
+    padding: 8px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    background: var(--card-bg);
+    overflow: hidden;
+}
+
+.about-images img {
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.about-images .image-wrapper:hover img {
+    transform: scale(1.03);
+}
+
+/* ---------------------------------------------------------------------- */
+/* SERVICES (Formerly OPTIONS) */
+/* ---------------------------------------------------------------------- */
+
+.services {
+    padding: 100px 20px;
+    text-align: center;
+    clip-path: polygon(0 10%, 100% 0, 100% 100%, 0% 100%);
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    position: relative;
+    overflow: hidden;
+    color: var(--card-bg);
+}
+
+#network-bg-services {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.serviceheading{
+    margin-top: 50px;
+}
+.services h2 {
+    margin-top: 30px;
+    z-index: 1;
+    position: relative;
+    margin-bottom: 40px;
+    color: var(--card-bg);
+}
+
+.service-cards {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 10px;
+    border-radius: 15px;
+    width: 150px;
+    /* Increased width */
+    min-height: 300px;
+    /* Increased min-height */
+    transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: flex-start;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--bg);
+}
+
+.card:hover {
+    transform: translateY(-12px) scale(1.05);
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.3),
+        0 0 20px rgba(82, 121, 111, 0.8),
+        0 0 0 4px var(--secondary);
+}
+
+.card-icon {
+    font-size: 3rem;
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+.card-icon svg {
+    width: 45px;
+    height: 45px;
+    fill: var(--secondary);
+    transition: transform 0.4s ease-out;
+}
+
+.card:hover .card-icon svg {
+    transform: scale(1.15) rotate(5deg);
+}
+
+.card h3 {
+    color: var(--primary);
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.card p {
+    color: var(--text-dark);
+    font-size: 1rem;
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+/* ---------------------------------------------------------------------- */
+/* REVIEWS */
+/* ---------------------------------------------------------------------- */
+.reviews {
+    text-align: center;
+    padding: 80px 50px;
+    background: var(--bg);
+}
+
+.review-cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    /* Increased gap */
+    margin-top: 50px;
+}
+
+.review {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    /* Increased gap */
+    background: #bbc8b8;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    position: relative;
+    max-width: 800px;
+    /* Changed to max-width */
+    width: 100%;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: left;
+    /* Text alignment within review */
+}
+
+.review:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+.review::after {
+    /* Adjusted pointer size and position */
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    left: 60px;
+    width: 0;
+    height: 0;
+    border-width: 15px 12px 0 12px;
+    border-style: solid;
+    border-color: #bbc8b8 transparent transparent transparent;
+}
+
+.review-pic-container {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    flex-shrink: 0;
+    border: 3px solid var(--secondary);
+}
+
+.review-pic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: filter 0.3s ease;
+}
+
+.review-name {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) translateY(100%);
+    color: black;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    opacity: 0;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 5px 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+}
+
+.review-pic-container:hover .review-pic {
+    filter: blur(3px);
+}
+
+.review-pic-container:hover .review-name {
+    transform: translateX(-50%) translateY(-50%);
+    opacity: 1;
+}
+
+.review-text {
+    flex: 1;
+}
+
+.review-text p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-dark);
+}
+
+
+
+/* ---------------------------------------------------------------------- */
+/* FOOTER */
+/* ---------------------------------------------------------------------- */
+
+.footer {
+    background: linear-gradient(135deg, var(--text-dark), var(--primary));
+    color: #ffffff;
+    padding: 60px 80px 30px;
+    margin-top: 80px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-section {
+    flex: 1 1 45%;
+    min-width: 250px;
+}
+
+.footer-logo {
+    font-size: 30px;
+    font-weight: 800;
+    color: var(--secondary);
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.footer-mission {
+    font-size: 15px;
+    line-height: 1.5;
+    opacity: 0.8;
+    margin-bottom: 20px;
+}
+
+.footer-section h3 {
+    margin-bottom: 15px;
+    font-size: 20px;
+    color: var(--secondary);
+    border-left: 3px solid var(--secondary);
+    padding-left: 10px;
+}
+
+.footer-contact p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    opacity: 0.85;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.icon svg {
+    vertical-align: middle;
+    opacity: 0.9;
+    transition: transform 0.3s ease;
+}
+
+.footer-contact p:hover .icon svg {
+    transform: translateX(4px);
+    opacity: 1;
+}
+
+.footer-socials {
+    margin-top: 30px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.sicon {
+    display: inline-block;
+    padding: 8px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.sicon svg {
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    display: block;
+}
+
+.sicon:hover {
+    background-color: var(--secondary);
+    transform: translateY(-4px);
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 15px;
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+.footer-policy-links {
+    margin-bottom: 10px;
+}
+
+.footer-policy-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.footer-policy-links a:hover {
+    color: var(--secondary);
+}
+
+.footer-policy-links span {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* ---------------------------------------------------------------------- */
+/* GRADIENT HEADINGS & ANIMATIONS */
+/* ---------------------------------------------------------------------- */
+
+.gradient-heading {
+    font-style: italic;
+    font-weight: 700;
+    background: linear-gradient(90deg,
+            var(--text-dark),
+            var(--secondary),
+            var(--text-light),
+            var(--primary));
+    text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+.gradient-heading:hover {
+    transform: scale(1.05);
+    text-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.option-gradient-heading {
+    font-style: italic;
+    font-weight: 700;
+    background: linear-gradient(90deg,
+            var(--card-bg),
+            var(--secondary));
+    text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+.option-gradient-heading:hover {
+    transform: scale(1.05);
+    text-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* SCROLL ANIMATIONS */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.animate-fade {
+    animation: fadeIn 1s ease forwards;
+}
+
+.animate-slide {
+    animation: slideIn 1s ease forwards;
+}
+
+.animate-zoom {
+    animation: zoomIn 0.8s ease forwards;
+}
+
+
+/* ---------------------------------------------------------------------- */
+/* --- RESPONSIVE ADJUSTMENTS (Media Queries) --- */
+/* ---------------------------------------------------------------------- */
+
+/* Tablet and Large Mobile (Max Width 1024px) */
+@media (max-width: 1024px) {
+
+    /* GENERAL */
+    .header {
+        padding: 15px 30px;
+    }
+
+    /* ABOUT */
+    .about {
+        padding: 60px 30px;
+        gap: 40px;
+    }
+
+    .about-text,
+    .about-images {
+        flex-basis: 100%;
+        /* Stack on top of each other */
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .services{
+        clip-path: polygon(0 5%, 100% 0, 100% 100%, 0% 100%);
+    }
+    /* SERVICES */
+    .service-cards {
+        gap: 20px;
+    }
+
+    .card {
+        width: 45%;
+        /* Two cards per row */
+        min-width: 250px;
+    }
+
+    /* REVIEWS */
+    .reviews {
+        padding: 60px 30px;
+    }
+
+    .review {
+        max-width: 650px;
+        flex-direction: column;
+        /* Stack image and text */
+        text-align: center;
+        gap: 20px;
+    }
+
+    .review::after {
+        left: 50%;
+        transform: translateX(-50%) translateY(0);
+    }
+
+    .review-pic-container {
+        margin: 0 auto;
+    }
+
+    /* FOOTER */
+    .footer {
+        padding: 50px 40px 20px;
+    }
+
+    .footer-section {
+        flex: 1 1 45%;
+        min-width: unset;
+    }
+}
+
+/* Mid-Size Mobile (Max Width 768px) */
+@media (max-width: 768px) {
+
+    /* HEADER (Mobile Menu Trigger) */
+    .header {
+        padding: 15px 20px;
+    }
+
+    .header-left nav {
+        /* Hide navigation links on mobile */
+        display: none;
+    }
+
+    .header-right {
+        gap: 5px;
+    }
+
+    .header-right .login-btn,
+    .header-right .signup-btn,
+    .logout-btn {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+
+    /* HERO */
+    .hero {
+        padding: 120px 20px 80px;
+        min-height: 80vh;
+    }
+
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+
+    /* SERVICES */
+    .services {
+        padding: 70px 10px;
+    }
+
+    .card {
+        width: 100%;
+        /* Single card per row for maximum focus */
+        max-width: 350px;
+    }
+
+    /* REVIEWS */
+    .review {
+        padding: 20px;
+    }
+
+    /* FOOTER */
+    .footer-container {
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap: 30px;
+    }
+
+    .footer-section {
+        flex-basis: 45%;
+    }
+}
+
+/* Small Mobile (Max Width 600px) */
+@media (max-width: 600px) {
+
+    /* HEADER */
+    .header {
+        padding: 10px 15px;
+    }
+
+    .header-right {
+        /* Stack buttons or hide if a mobile menu is implemented */
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+
+    /* HERO */
+    .hero {
+        padding: 100px 15px 60px;
+        clip-path: polygon(0 0, 100% 0, 100% 95%, 0% 100%);
+    }
+
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+
+    /* ABOUT */
+    .about {
+        padding: 40px 15px;
+    }
+
+    .about-images .image-wrapper {
+        padding: 5px;
+    }
+    .services{
+        clip-path: polygon(0 5%, 100% 0, 100% 100%, 0% 100%);
+    }
+    .services h2{
+        margin-top: 70px;
+    }
+
+    /* REVIEWS */
+    .reviews {
+        padding: 40px 15px;
+    }
+
+    .review {
+        gap: 15px;
+    }
+
+    .review-pic-container {
+        width: 80px;
+        height: 80px;
+    }
+
+    /* CONTACT */
+    .contact-card {
+        padding: 30px 20px;
+    }
+
+    /* FOOTER */
+    .footer {
+        padding: 40px 20px 15px;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .footer-section {
+        flex-basis: 100%;
+        /* Single column on mobile */
+    }
+}
+
+@media (max-width: 1400px) {
+    .header {
+        padding: 15px 20px;
+    }
+
+    .hero {
+        padding: 120px 30px 80px;
+    }
+
+    .about {
+        padding: 60px 30px;
+    }
+
+    .service-cards {
+        gap: 30px;
+    }
+
+    .card {
+        width: 30%;
+        min-width: 200px;
+    }
+}

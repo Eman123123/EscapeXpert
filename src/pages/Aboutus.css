@@ -1,0 +1,203 @@
+/* Ensure variables from :root in your main CSS are available */
+/* Assuming --primary, --secondary, --bg, --card-bg, --text-dark are defined */
+
+/* ------------------- TEAM PAGE CONTAINER ------------------- */
+.team-page-container {
+    /* Padding to clear the fixed header */
+    padding: 100px 50px 80px 50px;  
+    background-color: var(--bg);
+    min-height:  70vh;/* Changed from fixed height to ensure it fits all content */
+    text-align: center;
+}
+
+/* ------------------- HEADER STYLING (Used by both main title and FAQ title) ------------------- */
+.team-page-header {
+    font-size: 3rem; 
+    margin-bottom: 70px;
+    padding-top: 20px;
+    color: var(--text-dark);
+    font-weight: 800;
+}
+
+.highlight-text {
+    /* Branded gradient */
+    background-image: linear-gradient(90deg, var(--secondary), var(--primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+/* ------------------- TEAM CARD GRID ------------------- */
+.team-cards-grid {
+    display: flex;
+    justify-content: center;
+    gap: 50px; 
+    flex-wrap: wrap;
+    max-width: 1250px;
+    margin: 0 auto;
+}
+
+/* ------------------- TEAM CARD ------------------- */
+.team-card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px; 
+    padding: 30px 25px;
+    width: 320px; 
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease;
+    backdrop-filter: blur(2px);
+    border: 1px solid rgba(255, 255, 255, 0.5); 
+    /* REMOVE opacity: 0! It must be controlled by the animation only. */
+}
+
+.team-card:hover {
+    transform: translateY(-12px); 
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3), 0 0 0 4px var(--secondary); 
+}
+
+.team-image-container {
+    width: 160px; 
+    height: 160px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 25px;
+    border: 6px solid var(--primary); 
+    box-shadow: 0 0 0 8px rgba(53, 79, 82, 0.2); 
+}
+
+.team-card:hover .team-image-container {
+    border-color: var(--secondary); 
+}
+
+.team-pic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(10%); 
+    transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.team-card:hover .team-pic {
+    transform: scale(1.1); 
+    filter: grayscale(0%); 
+}
+
+.team-details h3 {
+    color: var(--primary);
+    font-size: 1.6rem;
+    margin-bottom: 3px;
+    font-weight: 700;
+}
+
+.team-title {
+    color: var(--secondary);
+    font-weight: 600; 
+    margin-bottom: 18px;
+    font-size: 1rem;
+}
+
+.team-bio {
+    color: var(--text-dark);
+    font-size: 0.95rem; 
+    line-height: 1.5;
+}
+
+/* ------------------- ANIMATION KEYFRAMES (remain the same) ------------------- */
+
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-50px); } /* ADDED opacity: 0 */
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes zoomIn {
+    from { opacity: 0; transform: scale(0.8); } /* ADDED opacity: 0 */
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideInRight {
+    from { opacity: 0; transform: translateX(50px); } /* ADDED opacity: 0 */
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.animate-slide-left {
+    animation: slideInLeft 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s forwards;
+}
+
+.animate-zoom {
+    animation: zoomIn 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.4s forwards;
+}
+
+.animate-slide-right {
+    /* Keeping a short delay for staggered effect, 0.6s is also fine */
+    animation: slideInRight 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.6s forwards; 
+}
+
+/* ------------------- FAQ SECTION STYLES ------------------- */
+.faq-section {
+    padding: 80px 50px;
+    background-color: var(--bg); /* UNIFIED BACKGROUND */
+    text-align: center;
+}
+
+/* NO .faq-page-header STYLES NEEDED (using .team-page-header instead) */
+
+.faq-list {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.faq-item {
+    background: var(--card-bg); /* Use pure white for individual items against the background */
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    transition: background 0.3s ease;
+}
+
+.faq-item:hover {
+    background: var(--bg); /* Use the page background color on hover */
+}
+
+.faq-question {
+    display: block;
+    cursor: pointer;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--primary);
+    padding-right: 30px; 
+    position: relative;
+    list-style: none; 
+}
+
+.faq-item[open] > .faq-question {
+    color: var(--secondary); 
+}
+.faq-item[open] > .faq-question::before {
+    content: "−"; 
+}
+.faq-question::before {
+    content: "+"; 
+    position: absolute;
+    right: 0;
+    font-size: 1.2rem;
+    color: var(--secondary);
+    font-weight: 700;
+}
+
+.faq-answer {
+    margin-top: 15px;
+    padding: 10px 0 0 0;
+    border-top: 1px solid rgba(53, 79, 82, 0.1); 
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--text-dark);
+}

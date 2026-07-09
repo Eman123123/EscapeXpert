@@ -1,0 +1,592 @@
+/* ========================================================= */
+/* 1. ROOT VARIABLES & BASE STYLES */
+/* ========================================================= */
+
+:root {
+    --primary: #354F52;
+    --secondary: #52796F;
+
+    --bg: #CAD2C5;
+    --text-dark: #2F3E46;
+    --text-light: #84A98C;
+
+    --card-bg: #FFFFFF;
+
+    --success-color: #38A169;
+    --error-color: #E53E3E;
+}
+
+/* ========================================================= */
+/* 2. AUTH CONTAINER */
+/* ========================================================= */
+
+.auth-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #354F52, #78938b);
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+#network-bg-login,
+#network-bg-signup {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.auth-card {
+    position: relative;
+    z-index: 1;
+    background: var(--card-bg);
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* ========================================================= */
+/* 3. SIGNUP CARD */
+/* ========================================================= */
+
+.signup-card {
+    margin-top: 70px;
+    width: 900px;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    text-align: left;
+    overflow: hidden;
+}
+
+/* Left column */
+.signup-visual-column {
+    position: relative;
+    background: linear-gradient(180deg, var(--secondary), var(--primary));
+    color: var(--card-bg);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.signup-video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    flex-grow: 1;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    margin: 10px 0;
+}
+
+.signup-visual-column h2,
+.signup-visual-column p {
+    z-index: 2;
+    text-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+/* Right column */
+.signup-form-column {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* First + Last Name Row */
+.name-inputs {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.name-inputs > div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ========================================================= */
+/* 4. LOGIN CARD */
+/* ========================================================= */
+
+.login-card {
+    width: 900px;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    text-align: left;
+    overflow: hidden;
+}
+
+/* Left column */
+.login-visual-column {
+    position: relative;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    color: var(--card-bg);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.login-visual-column h2 {
+    z-index: 2;
+}
+
+.login-video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    flex-grow: 1;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    margin: 10px 0;
+}
+
+/* Right column */
+.login-form-column {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* ========================================================= */
+/* 5. COMMON FORM STYLES */
+/* ========================================================= */
+
+.auth-card form {
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-card form label {
+    text-align: left;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--text-dark);
+}
+
+.auth-card form input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.auth-card form button {
+    padding: 12px;
+    background: var(--secondary);
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background .3s, transform .2s;
+    margin-top: 5px;
+}
+
+.submit-btn-scale:hover {
+    background: var(--primary);
+    transform: scale(1.02);
+}
+
+/* Links */
+.auth-card p {
+    margin-top: 15px;
+}
+
+.auth-card p a {
+    color: var(--secondary);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.auth-card p a:hover {
+    text-decoration: underline;
+}
+
+/* ========================================================= */
+/* 6. MESSAGE BOX */
+/* ========================================================= */
+
+.message-box {
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    border: 1px solid transparent;
+}
+
+.message-box.error {
+    background-color: #fcebeb;
+    color: var(--error-color);
+    border-color: var(--error-color);
+}
+
+.message-box.success {
+    background-color: #e6fffa;
+    color: var(--success-color);
+    border-color: var(--success-color);
+}
+
+/* ========================================================= */
+/* 7. ANIMATION */
+/* ========================================================= */
+
+.animate-zoom {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all .8s ease;
+}
+
+.animate-zoom.in-view {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* ========================================================= */
+/* 8. OTP VERIFICATION */
+/* ========================================================= */
+
+.otp-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.otp-form p {
+    margin-bottom: 25px;
+    font-size: 1em;
+    color: var(--text-dark);
+    text-align: center;
+    max-width: 300px;
+}
+
+.otp-form label {
+    align-self: flex-start;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.otp-form input {
+    width: 200px;
+    text-align: center;
+    font-size: 1.5em;
+    letter-spacing: 15px;
+    padding: 15px 10px;
+    margin-bottom: 30px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.resend-link,
+.back-link {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--secondary);
+    font-size: .9em;
+}
+
+.resend-link:hover,
+.back-link:hover {
+    color: var(--primary);
+    text-decoration: underline;
+}
+
+.back-link {
+    margin-top: 15px;
+}
+
+/* ========================================================= */
+/* 9. RESPONSIVE */
+/* ========================================================= */
+
+@media (max-width: 850px) {
+    .signup-card {
+        width: 95%;
+        grid-template-columns: 100%;
+        max-width: 450px;
+    }
+
+    .signup-visual-column {
+        display: none;
+    }
+
+    .name-inputs {
+        flex-direction: column;
+    }
+
+    .otp-form input {
+        letter-spacing: 10px;
+        font-size: 1.3em;
+        width: 180px;
+    }
+}
+
+/* ========================================================= */
+/* 10. TERMS CHECKBOX */
+/* ========================================================= */
+
+/* TERMS & CONDITIONS BOX */
+.terms-box {
+    display: flex;
+    align-items: center;      /* vertically center checkbox + text */
+    gap: 10px;                /* space between checkbox and text */
+    margin: 12px 0;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+/* Checkbox */
+.terms-box input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: var(--secondary); /* modern checkbox color */
+}
+
+/* Label text */
+.terms-box label {
+    cursor: pointer;
+    color: #555;
+}
+
+/* Terms link */
+.terms-link {
+    color: var(--secondary);
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+.terms-link:hover {
+    text-decoration: none;
+}
+
+
+
+/* ========================================================= */
+/* 11. GOOGLE BUTTON */
+/* ========================================================= */
+
+/* .google-login-section {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.google-btn {
+    width: 100%;
+    background: #fff;
+    border: 1px solid #d0d7de;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    align-items: center;
+    cursor: pointer;
+    transition: .25s;
+    color: #444;
+}
+
+.google-btn:hover {
+    background: var(--primary);
+    border-color: #b9ccff;
+    transform: scale(1.02);
+}
+
+.google-icon {
+    width: 50px;
+    transition: transform .2s ease-in-out;
+} */
+
+/* ========================================================= */
+/* 12. OR DIVIDER */
+/* ========================================================= */
+
+.or-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 18px 0;
+}
+
+.or-divider::before,
+.or-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #e0e0e0;
+    margin: 0 12px;
+}
+
+/* ========================================================= */
+/* 13. TERMS PAGE */
+/* ========================================================= */
+
+.terms-card {
+    margin-top: 70px;
+    width: 70%;
+    padding: 40px;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(20px);
+}
+
+.terms-content h3 {
+    margin-top: 20px;
+    color: #fff;
+}
+
+.terms-content p,
+.terms-content li {
+    color: #f2f2f2;
+}
+
+.back-btn-container {
+    margin-top: 30px;
+    text-align: center;
+}
+
+/* ========================================================= */
+/* 14. SUBMIT BUTTON */
+/* ========================================================= */
+
+.submit-btn-scale {
+    width: 100%;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #52796F, #354F52);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.submit-btn-scale:hover {
+    transform: scale(1.05);
+}
+
+.submit-btn-scale:active {
+    transform: scale(.98);
+}
+
+/* ========================================================= */
+/* 15. FORGOT PASSWORD */
+/* ========================================================= */
+
+.forgot-password {
+    text-align: right;
+    margin: 5px 0 15px;
+}
+
+.forgot-password a {
+    color: #6b8e77;
+    text-decoration: none;
+    font-size: .9rem;
+}
+
+.forgot-password a:hover {
+    color: #354F52;
+    text-decoration: underline;
+}
+
+/* ========================================================= */
+/* 15. FORGOT PASSWORD CARD SIZE */
+/* ========================================================= */
+
+.forget-password-card {
+    width: 450px;          /* increase or decrease as you like */
+    padding: 40px 35px;    /* bigger spacing */
+    margin-top: 40px;      /* spacing from header */
+}
+
+/* ========================================================= */
+/* 16. VERIFY OTP CARD SIZE */
+/* ========================================================= */
+
+.verifyOTP-card{
+    width: 450px;          /* increase or decrease as you like */
+    padding: 40px 35px;    /* bigger spacing */
+    margin-top: 40px; 
+}
+
+
+/* ========================================================= */
+/* 17. RESET PASSWORD CARD SIZE */
+/* ========================================================= */
+
+.reset-password-card{
+    width: 450px;          /* increase or decrease as you like */
+    padding: 40px 35px;    /* bigger spacing */
+    margin-top: 40px; 
+}
+
+
+
+/* Error text under inputs */
+.error-text {
+    display: block;
+    margin-top: 4px;
+    font-size: 13px;
+    color: #e74c3c;          /* red */
+    font-weight: 500;
+}
+
+/* Highlight input when error exists (optional but looks nice) */
+input:focus {
+    outline: none;
+    border: 1px solid #6aa68b;
+}
+
+input.error-input {
+    border: 1px solid #e74c3c;
+    background: rgba(231, 76, 60, 0.06);
+}
+
+
+.message-box {
+    padding: 10px 14px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    text-align: center;
+    font-weight: 500;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* ERROR popup */
+.message-box.error {
+    background: rgba(231, 76, 60, 0.15);
+    color: #e74c3c;
+    border: 1px solid #e74c3c;
+}
+
+/* SUCCESS popup */
+.message-box.success {
+    background: rgba(46, 204, 113, 0.15);
+    color: #2ecc71;
+    border: 1px solid #2ecc71;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to   { opacity: 1; transform: translateY(0); }
+}

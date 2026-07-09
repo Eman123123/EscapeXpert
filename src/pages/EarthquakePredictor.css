@@ -1,0 +1,208 @@
+/* EarthquakePredictor.css */
+
+.prediction-content {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  padding: 80px 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #1b2a2f, #0f2027);
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.prediction-content > *:not(canvas) {
+  position: relative;
+  z-index: 2;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.card-btn {
+  padding: 10px 25px;
+  background-color: #52796f;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.card-btn:hover {
+  background-color: #354f52;
+  transform: translateY(-2px);
+}
+
+.card-btn:disabled {
+  background-color: #7f8c8d;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.prediction-card {
+  background-color: #f8fdfb;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.prediction-card:hover {
+  transform: translateY(-5px);
+}
+
+.prediction-card h2 {
+  color: #354f52;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+.prediction-card h3 {
+  color: #2c3e50;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+}
+
+.prediction-card h4 {
+  color: #2c3e50;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.prediction-card ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.prediction-card li {
+  padding: 8px 0;
+  border-bottom: 1px solid #e0e0e0;
+  color: #52796f;
+}
+
+.prediction-card p {
+  margin: 10px 0;
+  color: #52796f;
+  line-height: 1.6;
+}
+
+/* Autocomplete Styles */
+.autocomplete-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.location-input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s;
+  box-sizing: border-box;
+}
+
+.location-input:focus {
+  border-color: #52796f;
+}
+
+.searching-indicator {
+  position: absolute;
+  right: 15px;
+  top: 12px;
+  font-size: 12px;
+  color: #999;
+}
+
+.suggestions-dropdown {
+  position: absolute;
+  top: 48px;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  max-height: 250px;
+  overflow-y: auto;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.suggestion-item {
+  padding: 10px 12px;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+  transition: background 0.2s;
+}
+
+.suggestion-item:hover {
+  background: #f5f5f5;
+}
+
+.suggestion-name {
+  font-weight: 600;
+  font-size: 14px;
+  color: #333;
+}
+
+.suggestion-detail {
+  font-size: 11px;
+  color: #666;
+  margin-top: 2px;
+}
+
+.no-results {
+  position: absolute;
+  top: 48px;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  color: #999;
+  font-size: 12px;
+  z-index: 1000;
+}
+
+.selected-location {
+  margin-top: 10px;
+  padding: 8px;
+  background: #e8f5e9;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 13px;
+  color: #2e7d32;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .prediction-card {
+    padding: 20px;
+  }
+  
+  .prediction-card h2 {
+    font-size: 1.5rem;
+  }
+  
+  .prediction-card h3 {
+    font-size: 1.2rem;
+  }
+}

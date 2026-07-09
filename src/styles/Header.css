@@ -1,0 +1,152 @@
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 40px; 
+    background: var(--primary);
+    color: var(--card-bg);
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+    box-sizing: border-box;
+    /* margin-left: 30px; */
+    /* margin-right: 30px; */
+}
+
+.header .logo {
+    height: 40px;
+    object-fit: contain;
+    transform: scale(1.7);
+    transform-origin: center;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.header-left nav a {
+    margin-left: 20px;
+    color: var(--card-bg);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.header-left nav a:hover {
+    color: var(--secondary);
+}
+
+.header-right {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.header-right .login-btn,
+.header-right .signup-btn {
+    padding: 8px 15px;
+    /* Reduced padding slightly */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s, color 0.3s, transform 0.2s;
+}
+
+/* LOGIN BUTTON: Transparent with white border */
+.header-right .login-btn {
+    background: transparent;
+    color: var(--card-bg);
+    /* White text */
+    border: 1px solid var(--card-bg);
+    /* White border */
+}
+
+.header-right .login-btn:hover {
+    background: var(--card-bg);
+    /* White background on hover */
+    color: var(--primary);
+    /* Dark text on hover */
+    transform: translateY(-2px);
+    border: 1px solid var(--card-bg);
+    /* Keep border consistent */
+}
+
+/* SIGNUP BUTTON: Solid Secondary color background */
+.header-right .signup-btn {
+    background: var(--secondary);
+    color: var(--card-bg);
+    /* White text (or whichever color var(--card-bg) resolves to, usually white) */
+    border: 1px solid var(--secondary);
+    /* Optional: Border for consistency */
+}
+
+.header-right .signup-btn:hover {
+    background: var(--primary);
+    color: var(--card-bg);
+    transform: translateY(-2px);
+    border: 1px solid var(--primary);
+}
+
+/* --- NEW STYLES FOR LOGGED-IN STATE START HERE --- */
+
+/* User Profile Container */
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Subtle background */
+    transition: background-color 0.3s ease;
+}
+
+.user-profile:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Profile Picture */
+.profile-pic {
+    width: 30px;
+    /* Small size for the header */
+    height: 30px;
+    border-radius: 50%;
+    /* Makes it a circle */
+    object-fit: cover;
+    border: 2px solid var(--secondary);
+    /* Accent border */
+}
+
+/* Username Text */
+.username {
+    color: var(--card-bg);
+    /* White text color */
+    font-weight: 500;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    /* Prevents text wrap */
+}
+
+/* Logout Button */
+.logout-btn {
+    padding: 5px 15px;
+    border: 2px solid var(--secondary);
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    background: var(--secondary);
+    color: var(--primary);
+    /* Dark text on light button */
+    transition: background 0.3s, transform 0.2s;
+}
+
+.logout-btn:hover {
+    background: var(--primary);
+    color: var(--secondary);
+    border: 2px solid var(--secondary);
+    transform: translateY(-2px);
+}

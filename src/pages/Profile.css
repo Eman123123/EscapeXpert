@@ -1,0 +1,129 @@
+/* src/pages/Profile.css */
+
+/* --- 1. Layout Grid for Profile Content --- */
+
+.profile-header{
+    margin-top: 70px;
+    margin-left: 20px;
+}
+.profile-content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    /* margin-top: 70px; */
+}
+
+/* --- 2. Profile Cards --- */
+.profile-card {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.primary-card {
+    text-align: center;
+}
+
+.profile-pic-large {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid #84A98C;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.username-tag {
+    color: #52796F;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+/* --- Detail Card --- */
+.detail-card h3 {
+    margin-top: 0;
+    color: #354F52;
+    margin-bottom: 15px;
+}
+
+.detail-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #E9F4E9;
+}
+
+.detail-label {
+    color: #52796F;
+    font-weight: 500;
+}
+
+.detail-value {
+    color: #354F52;
+}
+
+.detail-value.bold {
+    font-weight: bold;
+}
+
+.email-link {
+    color: #84A98C;
+    text-decoration: none;
+}
+
+.status-active {
+    color: #2A9D8F;
+    font-weight: bold;
+}
+
+/* --- Profile Header --- */
+.profile-header {
+    margin-bottom: 20px;
+}
+
+.profile-header h1 {
+    font-size: 2em;
+    margin: 0;
+}
+
+.profile-header p {
+    color: #52796F;
+}
+
+/* --- Footer Utility --- */
+.profile-footer-utility {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.btn-utility-setting {
+    background-color: #84A98C;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-utility-setting:hover {
+    background-color: #6FA88B;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .profile-content-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-card {
+        text-align: left;
+    }
+}

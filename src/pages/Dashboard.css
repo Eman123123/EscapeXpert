@@ -1,0 +1,284 @@
+/* Dashboard.css - layout fixes for Header + Sidebar + Main */
+
+.main-title{
+    margin-left: 30px;
+    margin-top: 50px;
+}
+.dashboard-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.app-layout {
+    display: flex;
+    flex-grow: 1;
+    width: 100%;
+}
+
+/* Sidebar Styles */
+.dashboard-sidebar {
+    width: 220px;
+    flex-shrink: 0;
+    background-color: #354F52;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+}
+
+.dashboard-sidebar .nav-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    color: #CAD2C5;
+    text-decoration: none;
+}
+
+.dashboard-sidebar .nav-item:hover,
+.dashboard-sidebar .nav-item.active {
+    background-color: #52796F;
+    color: white;
+}
+
+/* Main Content */
+.dashboard-main-content {
+    flex-grow: 1;
+    padding: 25px;
+    background-color: #F4F8F4;
+    overflow-y: auto;
+}
+
+/* Profile Grid */
+.profile-content-grid {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.profile-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    flex: 1;
+    min-width: 250px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.profile-pic-large {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+/* Detail Card */
+.detail-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.detail-label {
+    font-weight: 500;
+    color: #52796F;
+    margin-right: 10px;
+}
+
+.detail-value {
+    font-weight: 400;
+}
+
+.status-active {
+    color: green;
+}
+
+
+/* ===== SERVICES SECTION ===== */
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.service-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-decoration: none;
+    color: #333;
+    transition: 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}
+
+.service-icon-container {
+    font-size: 32px;
+    color: #354F52;
+    margin-bottom: 12px;
+}
+
+.service-card h3 {
+    margin: 5px 0;
+    font-size: 18px;
+}
+
+.service-card p {
+    font-size: 14px;
+    color: #555;
+}
+
+.service-action-link {
+    margin-top: 10px;
+    display: inline-block;
+    color: #52796F;
+    font-weight: 600;
+}
+
+.service-card:hover .service-action-link {
+    text-decoration: underline;
+}
+
+
+/* ========= EXISTING CODE REMAINS SAME ========= */
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .app-layout {
+        flex-direction: column;
+    }
+
+    .dashboard-sidebar {
+        width: 100%;
+    }
+
+    .profile-content-grid {
+        flex-direction: column;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+}
+
+
+/* ========= NEW BREAKPOINT: For Tablets < 600px ========= */
+@media (max-width: 600px) {
+    .dashboard-main-content {
+        padding: 15px;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 15px;
+    }
+
+    .service-card {
+        padding: 15px;
+    }
+
+    .profile-card {
+        padding: 15px;
+    }
+
+    .profile-pic-large {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+
+/* ========= NEW BREAKPOINT: Small Mobiles < 480px ========= */
+@media (max-width: 480px) {
+
+    .dashboard-sidebar {
+        padding-top: 10px;
+    }
+
+    .dashboard-sidebar .nav-item {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+
+    .main-title {
+        margin-left: 10px;
+        margin-top: 20px;
+        font-size: 20px;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;   /* Single column */
+    }
+
+    .service-card {
+        padding: 12px;
+    }
+
+    .profile-card {
+        padding: 12px;
+    }
+
+    .profile-pic-large {
+        width: 80px;
+        height: 80px;
+    }
+}
+/* Add to Dashboard.css */
+.vr-module-status-card {
+  background: #f8f9fa;
+  border-left: 4px solid #28a745;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.status-left h3 {
+  margin: 0 0 5px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.status-badge {
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 12px;
+  background: #28a745;
+  color: white;
+}
+
+.status-text {
+  margin: 0;
+  color: #666;
+}
+
+.launch-vr-btn {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.launch-vr-btn:hover {
+  background: #218838;
+}
+
+.launch-vr-btn:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+}

@@ -1,0 +1,367 @@
+/* Settings.css - Simplified and Updated Styles */
+
+/* --- General Layout & Typography --- */
+
+.settings-subtitle {
+    color: #52796F;
+    margin-bottom: 30px;
+    margin-left: 50px;
+}
+
+.settings-grid {
+    display: grid;
+    /* Forces a single column layout */
+    grid-template-columns: 1fr; 
+    max-width: 650px; /* Slightly wider max width for better card appearance */
+    gap: 30px;
+    margin: 0 auto;
+}
+
+.settings-card {
+    background-color: white;
+    padding: 30px; /* Increased padding */
+    border-radius: 12px; /* More rounded corners */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08); /* Stronger shadow */
+}
+
+.settings-hr {
+    border: none;
+    border-top: 1px solid #CAD2C5;
+    margin: 10px 0;
+}
+
+.settings-card .card-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #CAD2C5;
+}
+
+.settings-card .card-header i {
+    font-size: 1.8em; /* Larger icons */
+    color: #52796F;
+    margin-right: 15px;
+}
+
+.settings-card .card-header h3 {
+    margin: 0;
+    color: #354F52;
+    font-size: 1.5rem;
+}
+
+.settings-card p {
+    color: #52796F;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+/* --- Theme Selector Styling (Toggle) --- */
+.theme-selector-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.theme-label {
+    font-weight: bold;
+    color: #354F52;
+}
+
+.theme-toggle-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+    background-color: #F0F4F0;
+    border-radius: 8px;
+    border: 1px solid #CAD2C5;
+    user-select: none; /* Prevent text selection */
+}
+
+/* Hide the native checkbox */
+.theme-checkbox-hidden {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.theme-toggle-switch {
+    position: relative;
+    display: block;
+    width: 70px; /* Width of the entire switch */
+    height: 34px; /* Height of the entire switch */
+    border-radius: 34px;
+    cursor: pointer;
+    background-color: #52796F; /* Darker green background for switch (Light Mode State) */
+    transition: background-color 0.4s;
+    flex-shrink: 0; /* Prevents stretching */
+}
+
+.toggle-slider {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Icons within the toggle */
+.toggle-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.1em;
+    color: white;
+    transition: opacity 0.4s, transform 0.4s;
+}
+
+.sun-icon {
+    left: 8px;
+    color: #F7D353; /* Sun yellow */
+}
+
+.moon-icon {
+    right: 8px;
+    color: #C0C0C0; /* Moon silver */
+    opacity: 0; /* Hide moon by default */
+}
+
+/* When checked (Dark Mode) */
+.theme-checkbox-hidden:checked + .theme-toggle-switch {
+    background-color: #354F52; /* Darker switch background (Dark Mode State) */
+}
+
+.theme-checkbox-hidden:checked + .theme-toggle-switch .toggle-slider {
+    transform: translateX(36px); /* Move slider to the right */
+}
+
+.theme-checkbox-hidden:checked + .theme-toggle-switch .sun-icon {
+    opacity: 0; /* Hide sun */
+}
+
+.theme-checkbox-hidden:checked + .theme-toggle-switch .moon-icon {
+    opacity: 1; /* Show moon */
+}
+
+.toggle-label {
+    font-weight: 600;
+    color: #52796F;
+}
+
+/* Hide the old theme button styles */
+.theme-buttons, .btn-theme {
+    display: none;
+}
+
+
+/* --- DANGER ZONE / DELETION STYLING --- */
+.danger-zone-settings {
+    border: 2px solid #E76F51; /* Red border to indicate seriousness */
+    background-color: #FFF0ED; /* Very light pink/red background */
+}
+
+.btn-delete-account {
+    background-color: #E76F51;
+    color: white;
+    font-weight: bold;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.2s, transform 0.1s;
+    width: 100%;
+}
+
+.btn-delete-account:hover {
+    background-color: #CF5C3F;
+    transform: translateY(-1px);
+}
+
+
+/* --- CUSTOM MODAL STYLES (Replaces alert/confirm) --- */
+.custom-modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.custom-modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+}
+
+.danger-modal h2 {
+    color: #E76F51;
+    margin-top: 0;
+}
+
+.danger-modal p {
+    color: #354F52;
+    margin-bottom: 30px;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+}
+
+.btn-modal-cancel, .btn-modal-confirm-delete {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    flex: 1;
+}
+
+.btn-modal-cancel {
+    background-color: #CAD2C5;
+    color: #354F52;
+}
+
+.btn-modal-cancel:hover {
+    background-color: #A3B18A;
+}
+
+.btn-modal-confirm-delete {
+    background-color: #E76F51;
+    color: white;
+}
+
+.btn-modal-confirm-delete:hover {
+    background-color: #CF5C3F;
+}
+
+
+/* ---------------------------------------------------------------------- */
+/* --- DARK MODE STYLES (Applied via body.dark-theme) --- */
+/* ---------------------------------------------------------------------- */
+
+/* Dark Mode Overrides */
+
+body.dark-theme {
+    background-color: #121212; /* Dark background */
+    color: #E0E0E0;
+}
+
+body.dark-theme .dashboard-main-content {
+    background-color: #121212;
+}
+
+body.dark-theme .settings-card {
+    background-color: #1E1E1E;
+    box-shadow: 0 6px 15px rgba(255, 255, 255, 0.05);
+}
+
+body.dark-theme .settings-hr {
+    border-top: 1px solid #354F52;
+}
+
+body.dark-theme .settings-card .card-header {
+    border-bottom: 2px solid #354F52;
+}
+
+body.dark-theme .settings-card .card-header h3,
+body.dark-theme .settings-card p,
+body.dark-theme .main-title,
+body.dark-theme .theme-label {
+    color: #E0E0E0;
+}
+
+body.dark-theme .settings-card .card-header i {
+    color: #84A98C;
+}
+
+body.dark-theme .danger-zone-settings {
+    border: 2px solid #CF5C3F; 
+    background-color: #281C1B; /* Darker red background for danger zone */
+}
+
+body.dark-theme .theme-toggle-wrapper {
+    background-color: #2C2C2C;
+    border: 1px solid #354F52;
+}
+
+body.dark-theme .toggle-label {
+    color: #A8D5BA;
+}
+
+body.dark-theme .custom-modal-content {
+    background-color: #1E1E1E;
+}
+
+body.dark-theme .danger-modal h2 {
+    color: #E76F51;
+}
+
+body.dark-theme .danger-modal p {
+    color: #A8D5BA;
+}
+
+body.dark-theme .btn-modal-cancel {
+    background-color: #354F52;
+    color: #E0E0E0;
+}
+
+body.dark-theme .btn-modal-cancel:hover {
+    background-color: #52796F;
+}
+
+/* --- RESPONSIVE ADJUSTMENTS --- */
+
+@media (max-width: 650px) {
+    .settings-grid {
+        max-width: 100%;
+        padding: 0 10px;
+    }
+    .settings-card {
+        padding: 20px;
+    }
+    .settings-card .card-header i {
+        font-size: 1.5em;
+    }
+    .settings-card .card-header h3 {
+        font-size: 1.3rem;
+    }
+    .theme-toggle-wrapper {
+        padding: 8px;
+        gap: 10px;
+    }
+    .theme-toggle-switch {
+        width: 60px;
+        height: 30px;
+    }
+    .toggle-slider {
+        height: 22px;
+        width: 22px;
+    }
+    .theme-checkbox-hidden:checked + .theme-toggle-switch .toggle-slider {
+        transform: translateX(28px);
+    }
+    .custom-modal-content {
+        margin: 0 20px;
+    }
+}
